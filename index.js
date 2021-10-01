@@ -15,7 +15,7 @@ console.log(paulo)
 
 var jogadores = [rafa, paulo]
 
-function exbiJogadoresNaTela(jogadores) {
+function exibiJogadoresNaTela(jogadores) {
   var elemento = ""
   for (let i = 0; i < jogadores.length; i++) {
   
@@ -25,9 +25,9 @@ function exbiJogadoresNaTela(jogadores) {
     elemento +=  "<td>"+jogadores[i].empates+"</td>"
     elemento +=  "<td>"+jogadores[i].derrotas+"</td>"
     elemento +=  "<td>"+jogadores[i].pontos+"</td>"
-    elemento +=  "<td><button onClick='adicionarVitoria()'>Vitória</button></td>"
-    elemento +=  "<td><button onClick='adicionarEmpate()'>Empate</button></td>"
-    elemento +=  "<td><button onClick='adicionarDerrota()'>Derrota</button></td>"
+    elemento +=  "<td><button onClick='adicionarVitoria(" + i + ")'>Vitória</button></td>"
+    elemento +=  "<td><button onClick='adicionarEmpate(" + i + ")'>Empate</button></td>"
+    elemento +=  "<td><button onClick='adicionarDerrota(" + i + ")'>Derrota</button></td>"
     elemento +=  "</tr>"
   }
   var tabelaJogadores = document.getElementById("tabelaJogadores");
@@ -35,4 +35,25 @@ function exbiJogadoresNaTela(jogadores) {
 
 }
 
-exbiJogadoresNaTela(jogadores)
+exibiJogadoresNaTela(jogadores)
+
+function adicionarVitoria(i){
+  var jogador = jogadores[i]
+  jogador.vitorias++;
+  jogador.pontos = calculaPontos(jogador);
+  exibiJogadoresNaTela(jogadores)
+}
+
+function adicionarEmpate(i){
+  var jogador = jogadores[i]
+  jogador.empates++;
+  jogador.pontos = calculaPontos(jogador);
+  exibiJogadoresNaTela(jogadores)
+}
+
+function adicionarDerrota(i){
+  var jogador = jogadores[i]
+  jogador.derrotas++;
+  jogador.pontos = calculaPontos(jogador);
+  exibiJogadoresNaTela(jogadores)
+}

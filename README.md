@@ -20,3 +20,4 @@ Este projeto foi desenvolvido utilizando objeto para criar uma tabela de classif
 - Rodar com a extensão: Live Server
 
 ## Página do projeto
+https://devhikary.github.io/tab_class_imersaoDev/
